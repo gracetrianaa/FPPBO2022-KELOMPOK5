@@ -1,5 +1,5 @@
-# FP PBO (F) 2022 KELOMPOK 5 
-Final Project Pemrograman Berorientasi Objek 2022 Kelas F 
+# FP PBO (A) 2022 KELOMPOK 5 
+Final Project Pemrograman Berorientasi Objek 2022 Kelas A 
 
 Topik : Game of Snake App with Canvas
 
