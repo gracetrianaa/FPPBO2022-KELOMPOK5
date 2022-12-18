@@ -72,8 +72,11 @@ public class GameOverManager {
 		menu.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
+				MenuManager Menu = new MenuManager();
 				gameOverStage.close();
 				primaryStage.close();
+				Stage menuStage = Menu.getMainStage();
+				menuStage.show();
 			}
 		});
 		
