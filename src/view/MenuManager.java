@@ -121,7 +121,7 @@ public class MenuManager {
 		String[] HS = new String[3];
 		for(int i = 0; i < 3; i++) {
 			HS[i] = HighScore.getHighScore(i);
-			Text highScore = new Text(HS[i]);
+			Text highScore = new Text("TOP " + (i+1) + "\t\t" + HS[i]);
 			try {
 				highScore.setFont(Font.loadFont(new FileInputStream(new File(FONT_PATH)), 28));
 			} catch (FileNotFoundException e) {
@@ -134,7 +134,7 @@ public class MenuManager {
 	}
 	
 	private void createHelpSubScene() {
-		InfoLabel helpLabel = new InfoLabel("HELP");
+		InfoLabel helpLabel = new InfoLabel("TUTORIAL");
 		helpLabel.setLayoutX(200);
 		helpLabel.setLayoutY(25);
 		Text helptext = new Text();
@@ -210,10 +210,9 @@ public class MenuManager {
 			
 			@Override
 			public void handle(ActionEvent event) {
-					GameManager gameManager = new GameManager();
-					gameManager.start(choosenUlat);
-					mainStage.close();
-				
+				GameManager gameManager = new GameManager();
+				gameManager.start(choosenUlat);
+				mainStage.close();
 			}
 			
 		});
@@ -221,7 +220,6 @@ public class MenuManager {
 		return startButton;
 	}
 		
-
 
 	public Stage getMainStage() {
 		return mainStage;
