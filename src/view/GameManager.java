@@ -39,6 +39,8 @@ public class GameManager {
     private static final String[] FOODS_IMAGE = new String[]{"model/resources/orange.png", "model/resources/apple.png", "model/resources/cherry.png",
             "model/resources/strawberry.png", "model/resources/coconut.png", "model/resources/peach.png", "model/resources/watermelon.png", "model/resources/tomato.png",
             "model/resources/pomegranate.png"};
+    
+    private static final String BODY_IMAGE = new String("model/resources/Badan.png");
     private static final String FONT_PATH = ("src/model/resources/MadouFutoMaru.ttf");
  
     private static final int RIGHT = 0;
@@ -50,6 +52,7 @@ public class GameManager {
     private List<Point> snakeBody = new ArrayList();
     private Point snakeHead;
     private Image KepalaUlat;
+    private Image BadanUlat;
     private Image foodImage;
     private ULAT ulatChoosen;
     private int foodX;
@@ -183,12 +186,12 @@ public class GameManager {
     }
 
     private void drawSnake(GraphicsContext gc) {
-        gc.setFill(Color.web("4674E9"));
+    	BadanUlat = new Image(BODY_IMAGE);
         gc.drawImage(KepalaUlat, snakeHead.getX() * SQUARE_SIZE, snakeHead.getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1);
 
         for (int i = 1; i < snakeBody.size(); i++) {
-            gc.fillRoundRect(snakeBody.get(i).getX() * SQUARE_SIZE, snakeBody.get(i).getY() * SQUARE_SIZE, SQUARE_SIZE - 1,
-                    SQUARE_SIZE - 1, 20, 20);
+            gc.drawImage(BadanUlat, snakeBody.get(i).getX() * SQUARE_SIZE, snakeBody.get(i).getY() * SQUARE_SIZE, SQUARE_SIZE - 1,
+                    SQUARE_SIZE - 1);
         }
     }
 
