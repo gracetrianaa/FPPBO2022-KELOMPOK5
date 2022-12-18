@@ -118,16 +118,19 @@ public class MenuManager {
 		scoresLabel.setLayoutY(25);
 		scoreSubscene.getPane().getChildren().add(scoresLabel);
 		
-		String HS = HighScore.getHighScore();
-		Text highScore = new Text(HS);
-		try {
-			highScore.setFont(Font.loadFont(new FileInputStream(new File(FONT_PATH)), 28));
-		} catch (FileNotFoundException e) {
-			highScore.setFont(Font.font("Verdana", 23));
+		String[] HS = new String[3];
+		for(int i = 0; i < 3; i++) {
+			HS[i] = HighScore.getHighScore(i);
+			Text highScore = new Text(HS[i]);
+			try {
+				highScore.setFont(Font.loadFont(new FileInputStream(new File(FONT_PATH)), 28));
+			} catch (FileNotFoundException e) {
+				highScore.setFont(Font.font("Verdana", 23));
+			}
+			highScore.setLayoutY((i*100)+120);
+			highScore.setLayoutX(60);
+			scoreSubscene.getPane().getChildren().add(highScore);
 		}
-		highScore.setLayoutY(120);
-		highScore.setLayoutX(60);
-		scoreSubscene.getPane().getChildren().add(highScore);
 	}
 	
 	private void createHelpSubScene() {
