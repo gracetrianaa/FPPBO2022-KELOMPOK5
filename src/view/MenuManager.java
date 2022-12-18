@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import application.HighScore;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -116,9 +116,18 @@ public class MenuManager {
 		InfoLabel scoresLabel = new InfoLabel("SCORES");
 		scoresLabel.setLayoutX(200);
 		scoresLabel.setLayoutY(25);
-		
-		
 		scoreSubscene.getPane().getChildren().add(scoresLabel);
+		
+		String HS = HighScore.getHighScore();
+		Text highScore = new Text(HS);
+		try {
+			highScore.setFont(Font.loadFont(new FileInputStream(new File(FONT_PATH)), 28));
+		} catch (FileNotFoundException e) {
+			highScore.setFont(Font.font("Verdana", 23));
+		}
+		highScore.setLayoutY(120);
+		highScore.setLayoutX(60);
+		scoreSubscene.getPane().getChildren().add(highScore);
 	}
 	
 	private void createHelpSubScene() {
