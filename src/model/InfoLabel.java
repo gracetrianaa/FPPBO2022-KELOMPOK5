@@ -1,4 +1,4 @@
-package application;
+package model;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,9 +16,9 @@ import javafx.scene.text.Font;
 
 public class InfoLabel extends Label{
 	
-	public final static String FONT_PATH = "src/application/resources/kenvector_future.ttf";
+	public final static String FONT_PATH = "src/model/resources/LoveGlitch.ttf";
 	
-	public final static String BACKGROUND_IMAGE = "application/resources/yellow_panel.png";
+	public final static String BACKGROUND_IMAGE = "model/resources/yellow_panel.png";
 	
 	
 	public InfoLabel(String text) {

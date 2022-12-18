@@ -2,15 +2,16 @@ package application;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
-import view.GameManager;
+import view.MenuManager;
 
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			GameManager manager = new GameManager();
-			manager.start();
+			MenuManager manager = new MenuManager();
+			primaryStage = manager.getMainStage();
+			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
