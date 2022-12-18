@@ -28,6 +28,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import model.InfoLabel;
+import model.UlatBuluButton;
 import model.UlatBuluSubScene;
 
 
@@ -52,7 +53,7 @@ public class MenuManager {
 	private UlatBuluSubScene sceneToHide;
 	
 	
-	List<Button> menuButtons;
+	List<UlatBuluButton> menuButtons;
 	
 
 	
@@ -140,12 +141,9 @@ public class MenuManager {
 		
 	}
 	
-	
-	
-	
 
-	private Button createButtonToStart() {
-		Button startButton = new Button("START");
+	private UlatBuluButton createButtonToStart() {
+		UlatBuluButton startButton = new UlatBuluButton("START");
 		startButton.setLayoutX(350);
 		startButton.setLayoutY(300);
 		
@@ -158,7 +156,7 @@ public class MenuManager {
 		return mainStage;
 	}
 	
-	private void AddMenuButtons(Button button) {
+	private void AddMenuButtons(UlatBuluButton button) {
 		button.setLayoutX(MENU_BUTTON_START_X);
 		button.setLayoutY(MENU_BUTTON_START_Y + menuButtons.size() * 100);
 		menuButtons.add(button);
@@ -176,7 +174,7 @@ public class MenuManager {
 	}
 	
 	private void createStartButton() {
-		Button startButton = new Button("PLAY");
+		UlatBuluButton startButton = new UlatBuluButton("PLAY");
 		AddMenuButtons(startButton);
 		
 		startButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -190,7 +188,7 @@ public class MenuManager {
 	}
 	
 	private void createScoresButton() {
-		Button scoresButton = new Button("SCORES");
+		UlatBuluButton scoresButton = new UlatBuluButton("SCORES");
 		AddMenuButtons(scoresButton);
 		
 		scoresButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -204,7 +202,7 @@ public class MenuManager {
 	}
 	
 	private void createHelpButton() {
-		Button helpButton = new Button("TUTORIAL");
+		UlatBuluButton helpButton = new UlatBuluButton("TUTORIAL");
 		AddMenuButtons(helpButton);
 		
 		helpButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -219,7 +217,7 @@ public class MenuManager {
 	
 	private void createCreditsButton() {
 		
-		Button creditsButton = new Button("CREDITS");
+		UlatBuluButton creditsButton = new UlatBuluButton("CREDITS");
 		AddMenuButtons(creditsButton);
 		
 		creditsButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -234,7 +232,7 @@ public class MenuManager {
 	}
 	
 	private void createExitButton() {
-		Button exitButton = new Button("EXIT");
+		UlatBuluButton exitButton = new UlatBuluButton("EXIT");
 		AddMenuButtons(exitButton);
 		
 		exitButton.setOnAction(new EventHandler<ActionEvent>() {

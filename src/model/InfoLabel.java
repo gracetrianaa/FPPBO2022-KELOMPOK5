@@ -18,7 +18,7 @@ public class InfoLabel extends Label{
 	
 	public final static String FONT_PATH = "src/model/resources/LoveGlitch.ttf";
 	
-	public final static String BACKGROUND_IMAGE = "model/resources/yellow_panel.png";
+	public final static String BACKGROUND_IMAGE = "model/resources/green_button01.png";
 	
 	
 	public InfoLabel(String text) {
