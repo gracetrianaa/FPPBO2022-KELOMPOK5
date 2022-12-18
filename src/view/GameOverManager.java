@@ -33,6 +33,7 @@ public class GameOverManager {
 		gameOverStage = new Stage();
 		gameOverStage.setTitle("Ulat Bulu");
 		gameOverStage.setScene(gameOverScene);
+		createBackground();
 	}
 
 	public void createGOScene(Stage primaryStage, int score) {
@@ -78,6 +79,11 @@ public class GameOverManager {
 		gameOverPane.getChildren().addAll(retry, menu);
 		
 		gameOverStage.show();
+	}
+	private void createBackground() {
+		Image backgroundImage = new Image("model/resources/bg_ulatbulu.png", 450, 450, false, false);
+		BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+		gameOverPane.setBackground(new Background(background));
 	}
 	
 }
