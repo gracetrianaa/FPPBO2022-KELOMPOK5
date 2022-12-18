@@ -35,9 +35,10 @@ public class GameManager {
     private static final int COLUMNS = ROWS;
     private static final int SQUARE_SIZE = WIDTH / ROWS;
     
-    private static final String[] FOODS_IMAGE = new String[]{"application/resources/orange.png", "application/resources/apple.png", "application/resources/cherry.png",
-            "application/resources/strawberry.png", "application/resources/coconut.png", "application/resources/peach.png", "application/resources/watermelon.png", "application/resources/tomato.png",
-            "application/resources/pomegranate.png"};
+    private static final String[] FOODS_IMAGE = new String[]{"model/resources/orange.png", "model/resources/apple.png", "model/resources/cherry.png",
+            "model/resources/strawberry.png", "model/resources/coconut.png", "model/resources/peach.png", "model/resources/watermelon.png", "model/resources/tomato.png",
+            "model/resources/pomegranate.png"};
+    private static final String FONT_PATH = ("src/model/resources/MadouFutoMaru.ttf");
  
     private static final int RIGHT = 0;
     private static final int LEFT = 1;
@@ -226,7 +227,11 @@ public class GameManager {
 
     private void drawScore() {
         gc.setFill(Color.WHITE);
-        gc.setFont(new Font("Digital-7", 35));
+        try {
+			gc.setFont(Font.loadFont(new FileInputStream(new File(FONT_PATH)), 30));
+		} catch (FileNotFoundException e1) {
+			gc.setFont(Font.font("Verdana", 40));
+		}
         gc.fillText("Score: " + score, 10, 35);
     }
     

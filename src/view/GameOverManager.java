@@ -24,8 +24,8 @@ public class GameOverManager {
 	private Scene gameOverScene;
 	private Stage gameOverStage;
 	
-	public final static String FONT_PATH = "application/resources/LoveGlitch.ttf";
-	public final static String FONT_STYLE = "application/resources/MadouFutoMaru.ttf";
+	public final static String FONT_PATH = "model/resources/LoveGlitch.ttf";
+	public final static String FONT_STYLE = "model/resources/MadouFutoMaru.ttf";
 	
 	public GameOverManager() {
 		gameOverPane = new AnchorPane();
