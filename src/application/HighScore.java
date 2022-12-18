@@ -3,6 +3,8 @@ package application;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class HighScore {
@@ -21,6 +23,21 @@ static File myScores = new File ("src/application/scores");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static void writeToFile (int i) {
+		try {
+			FileWriter myWriter = new FileWriter (myScores);
+			
+			myWriter.write(Integer.toString(i));
+			
+			myWriter.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		readFromFile();
 	}
 	
 	public static String getHighScore() {

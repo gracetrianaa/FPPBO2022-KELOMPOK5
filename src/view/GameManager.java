@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.HighScore;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -118,6 +119,7 @@ public class GameManager {
     	if (gameOver) {
     		GameOverManager GOScene = new GameOverManager();
     		GOScene.createGOScene(primaryStage, score, ulatChoosen);
+    		HighScore.writeToFile(score);
     		timeline.stop();
 
     		return;
