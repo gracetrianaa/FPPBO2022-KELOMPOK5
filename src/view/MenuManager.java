@@ -1,18 +1,12 @@
 package view;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,13 +17,12 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import model.InfoLabel;
+import model.ULAT;
 import model.UlatBuluButton;
 import model.UlatBuluSubScene;
+import model.UlatPicker;
 
 
 public class MenuManager {
@@ -54,7 +47,7 @@ public class MenuManager {
 	
 	
 	List<UlatBuluButton> menuButtons;
-	
+	List<UlatPicker> UlatList;
 
 	
 	public MenuManager() {
@@ -108,6 +101,7 @@ public class MenuManager {
 		chooseUlatLabel.setLayoutX(200);
 		chooseUlatLabel.setLayoutY(25);
 		UlatChooserSubscene.getPane().getChildren().add(chooseUlatLabel);
+		UlatChooserSubscene.getPane().getChildren().add(createUlatToChoose());
 		UlatChooserSubscene.getPane().getChildren().add(createButtonToStart());
 	}
 	
@@ -136,6 +130,21 @@ public class MenuManager {
 		
 		creditsSubscene.getPane().getChildren().add(creditsLabel);
 		
+	}
+	
+	private HBox createUlatToChoose() {
+		HBox box = new HBox();
+		box.setSpacing(100);
+		UlatList = new ArrayList<>();
+		for (ULAT ulat : ULAT.values()) {
+			UlatPicker ulatToPick = new UlatPicker(ulat);
+			UlatList.add(ulatToPick);
+			box.getChildren().add(ulatToPick);
+		}
+		
+		box.setLayoutX(300 - (118*2));
+		box.setLayoutY(100);
+		return box;
 	}
 	
 
