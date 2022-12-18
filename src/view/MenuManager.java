@@ -48,6 +48,7 @@ public class MenuManager {
 	
 	List<UlatBuluButton> menuButtons;
 	List<UlatPicker> UlatList;
+	private ULAT choosenUlat;
 
 	
 	public MenuManager() {
@@ -140,6 +141,18 @@ public class MenuManager {
 			UlatPicker ulatToPick = new UlatPicker(ulat);
 			UlatList.add(ulatToPick);
 			box.getChildren().add(ulatToPick);
+			ulatToPick.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+				@Override
+				public void handle(MouseEvent event) {
+					for (UlatPicker ulat : UlatList) {
+						ulat.setIsCircleChoosen(false);
+					}
+					ulatToPick.setIsCircleChoosen(true);
+					choosenUlat = ulatToPick.getUlat();
+					
+				}
+			});
 		}
 		
 		box.setLayoutX(300 - (118*2));

@@ -7,7 +7,7 @@ import view.MenuManager;
 
 public class Main extends Application {
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage){
 		try {
 			MenuManager manager = new MenuManager();
 			primaryStage = manager.getMainStage();

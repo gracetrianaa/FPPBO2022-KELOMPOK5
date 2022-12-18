@@ -13,11 +13,11 @@ public class UlatPicker extends VBox {
 	private String circleChoosen = "model/resources/green_boxTick.png";
 			
 	private ULAT ulat;
+	private boolean isCircleChoosen;
 	
 	public UlatPicker(ULAT ulat) {
 		circleImage = new ImageView(circleNotChoosen);
 		ulatImage = new ImageView(ulat.getUrl());
-		this.ulat = ulat;
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(20);
 		this.getChildren().add(circleImage);
@@ -27,6 +27,16 @@ public class UlatPicker extends VBox {
 	
 	public ULAT getUlat() {
 		return ulat;
+	}
+	
+	public boolean getCircleChoosen() {
+		return isCircleChoosen;
+	}
+	
+	public void setIsCircleChoosen(boolean isCircleChoosen) {
+		this.isCircleChoosen = isCircleChoosen;
+		String imageToSet = this.isCircleChoosen ? circleChoosen : circleNotChoosen;
+		circleImage.setImage(new Image(imageToSet));
 	}
 }
 
