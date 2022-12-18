@@ -1,5 +1,8 @@
 package view;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +20,9 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import model.InfoLabel;
 import model.ULAT;
@@ -36,7 +42,7 @@ public class MenuManager {
 	private final static int MENU_BUTTON_START_Y = 150;
 	private static final String LOGO = new String("model/resources/logo_ulatbulu.png");
 	private ImageView LogoUlat = new ImageView(LOGO);
-	private final static String FONT_PATH = "src/model/resources/LoveGlitch.ttf";
+	private final static String FONT_PATH = "src/model/resources/MadouFutoMaru.ttf";
 	
 	private UlatBuluSubScene creditsSubscene;
 	private UlatBuluSubScene helpSubscene;
@@ -119,9 +125,21 @@ public class MenuManager {
 		InfoLabel helpLabel = new InfoLabel("HELP");
 		helpLabel.setLayoutX(200);
 		helpLabel.setLayoutY(25);
-		
+		Text helptext = new Text();
+		try {
+			helptext.setFont(Font.loadFont(new FileInputStream(new File(FONT_PATH)), 18));
+		} catch (FileNotFoundException e1) {
+			helptext.setFont(Font.font("Verdana", 40));
+		}
+		helptext.setLayoutX(100);
+		helptext.setLayoutY(110);
+		helptext.setTextAlignment(TextAlignment.CENTER);
+		helptext.setText("1. Press play button\n\n2. Pick your 'ulat bulu' style\n\n3. Press start button\n\n"
+				+ "4. Press 'UP' or 'DOWN' or 'RIGHT' or 'LEFT'\n button on your computer to change\n the direction of your 'ulat bulu'\n\n"
+				+ "5. If the 'ulat bulu' crashes the wall or\ncollides it's own body, the game is OVER\n\n"
+				+ "6. Press 'Retry' to play again");
 		helpSubscene.getPane().getChildren().add(helpLabel);
-		
+		helpSubscene.getPane().getChildren().add(helptext);
 	}
 	
 	private void createCreditsSubScene() {
