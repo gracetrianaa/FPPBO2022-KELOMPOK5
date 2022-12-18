@@ -146,9 +146,19 @@ public class MenuManager {
 		InfoLabel creditsLabel = new InfoLabel("CREDITS");
 		creditsLabel.setLayoutX(200);
 		creditsLabel.setLayoutY(25);
-		
+		Text creditstext = new Text();
+		try {
+			creditstext.setFont(Font.loadFont(new FileInputStream(new File(FONT_PATH)), 20));
+		} catch (FileNotFoundException e1) {
+			creditstext.setFont(Font.font("Verdana", 40));
+		}
+		creditstext.setLayoutX(80);
+		creditstext.setLayoutY(120);
+		creditstext.setTextAlignment(TextAlignment.CENTER);
+		creditstext.setText("CREATED BY :\n\nWARDATUL AMALIA SAFITRI (5025211006)\n\nGRACETRIANA SURVINTA SEPTINAPUTRI (5025211199)\n\nNADIRA MILHA NAILUL FATH (50252111253)\n\n\n"
+				+ "WITH REFERENCE FROM\n\nYOUTUBE MAHMOUD HAMWI");
 		creditsSubscene.getPane().getChildren().add(creditsLabel);
-		
+		creditsSubscene.getPane().getChildren().add(creditstext);
 	}
 	
 	private HBox createUlatToChoose() {
