@@ -117,7 +117,7 @@ public class GameManager {
     private void run(GraphicsContext gc) {
     	if (gameOver) {
     		GameOverManager GOScene = new GameOverManager();
-    		GOScene.createGOScene(primaryStage, score);
+    		GOScene.createGOScene(primaryStage, score, ulatChoosen);
     		timeline.stop();
 
     		return;

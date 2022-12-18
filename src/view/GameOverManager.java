@@ -18,6 +18,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import model.ULAT;
 import model.UlatBuluButton;
 
 public class GameOverManager {
@@ -37,7 +38,7 @@ public class GameOverManager {
 		createBackground();
 	}
 
-	public void createGOScene(Stage primaryStage, int score) {
+	public void createGOScene(Stage primaryStage, int score, ULAT ulatChoosen) {
 		
 		Label endScore = new Label(Integer.toString(score));
 		endScore.setPrefWidth(450);
@@ -64,6 +65,21 @@ public class GameOverManager {
 		UlatBuluButton retry = new UlatBuluButton("Retry");
 		retry.setLayoutX(20);
 		retry.setLayoutY(270);
+		
+		retry.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				GameManager restart = new GameManager();
+				try {
+					gameOverStage.close();
+					primaryStage.close();
+					restart.start(ulatChoosen);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		
 		UlatBuluButton menu = new UlatBuluButton("Main Menu");
 		menu.setLayoutX(230);
