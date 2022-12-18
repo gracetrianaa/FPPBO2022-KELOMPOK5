@@ -22,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.ULAT;
 
 public class GameManager {
 	private Group root;
@@ -48,7 +49,9 @@ public class GameManager {
     private GraphicsContext gc;
     private List<Point> snakeBody = new ArrayList();
     private Point snakeHead;
+    private Image KepalaUlat;
     private Image foodImage;
+    private ULAT ulatChoosen;
     private int foodX;
     private int foodY;
     private boolean gameOver;
@@ -63,7 +66,9 @@ public class GameManager {
         scene = new Scene(root);
     }
 
-    public void start(){
+    public void start(ULAT choosenUlat){
+    	ulatChoosen = choosenUlat;
+    	KepalaUlat = new Image (choosenUlat.getKepala());
     	
     	primaryStage = new Stage();
         primaryStage.setScene(scene);
@@ -179,7 +184,7 @@ public class GameManager {
 
     private void drawSnake(GraphicsContext gc) {
         gc.setFill(Color.web("4674E9"));
-        gc.fillRoundRect(snakeHead.getX() * SQUARE_SIZE, snakeHead.getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 35, 35);
+        gc.drawImage(KepalaUlat, snakeHead.getX() * SQUARE_SIZE, snakeHead.getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1);
 
         for (int i = 1; i < snakeBody.size(); i++) {
             gc.fillRoundRect(snakeBody.get(i).getX() * SQUARE_SIZE, snakeBody.get(i).getY() * SQUARE_SIZE, SQUARE_SIZE - 1,

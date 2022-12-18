@@ -18,6 +18,7 @@ public class UlatPicker extends VBox {
 	public UlatPicker(ULAT ulat) {
 		circleImage = new ImageView(circleNotChoosen);
 		ulatImage = new ImageView(ulat.getUrl());
+		this.ulat = ulat;
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(20);
 		this.getChildren().add(circleImage);

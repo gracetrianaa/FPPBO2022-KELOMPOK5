@@ -171,7 +171,7 @@ public class MenuManager {
 			@Override
 			public void handle(ActionEvent event) {
 					GameManager gameManager = new GameManager();
-					gameManager.start();
+					gameManager.start(choosenUlat);
 					mainStage.close();
 				
 			}
