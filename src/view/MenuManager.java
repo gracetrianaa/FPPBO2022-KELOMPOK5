@@ -82,9 +82,6 @@ public class MenuManager {
 	}
 	
 
-	
-	
-	
 	private void createSubScenes() {
 		
 		creditsSubscene = new UlatBuluSubScene();
@@ -146,6 +143,18 @@ public class MenuManager {
 		UlatBuluButton startButton = new UlatBuluButton("START");
 		startButton.setLayoutX(350);
 		startButton.setLayoutY(300);
+		
+		startButton.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+					GameManager gameManager = new GameManager();
+					gameManager.start();
+					mainStage.close();
+				
+			}
+			
+		});
 		
 		return startButton;
 	}
