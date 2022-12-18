@@ -4,11 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import model.ULAT;
+import model.UlatBuluButton;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -18,16 +19,14 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import model.ULAT;
-import model.UlatBuluButton;
 
 public class GameOverManager {
 	private AnchorPane gameOverPane;
 	private Scene gameOverScene;
 	private Stage gameOverStage;
 	
-	public final static String FONT_PATH = "model/resources/LoveGlitch.ttf";
-	public final static String FONT_STYLE = "model/resources/MadouFutoMaru.ttf";
+	public final static String FONT_PATH = "src/model/resources/LoveGlitch.ttf";
+	public final static String FONT_STYLE = "src/model/resources/MadouFutoMaru.ttf";
 	
 	public GameOverManager() {
 		gameOverPane = new AnchorPane();
@@ -100,10 +99,10 @@ public class GameOverManager {
 		
 		gameOverStage.show();
 	}
+	
 	private void createBackground() {
 		Image backgroundImage = new Image("model/resources/bg_ulatbulu.png", 450, 450, false, false);
 		BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
 		gameOverPane.setBackground(new Background(background));
 	}
-	
 }
