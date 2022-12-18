@@ -18,6 +18,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import model.UlatBuluButton;
 
 public class GameOverManager {
 	private AnchorPane gameOverPane;
@@ -60,11 +61,11 @@ public class GameOverManager {
 		
 		gameOverPane.getChildren().addAll(endScore, gameOver);
 		
-		Button retry = new Button("Retry");
+		UlatBuluButton retry = new UlatBuluButton("Retry");
 		retry.setLayoutX(20);
 		retry.setLayoutY(270);
 		
-		Button menu = new Button("Main Menu");
+		UlatBuluButton menu = new UlatBuluButton("Main Menu");
 		menu.setLayoutX(230);
 		menu.setLayoutY(270);
 		
