@@ -28,8 +28,7 @@ import model.InfoLabel;
 import model.ULAT;
 import model.UlatBuluButton;
 import model.UlatBuluSubScene;
-import model.UlatPicker;
-
+import model.UlatPicker; 
 
 public class MenuManager {
 	private static final int HEIGHT = 768;
@@ -51,11 +50,10 @@ public class MenuManager {
 	
 	private UlatBuluSubScene sceneToHide;
 	
-	
 	List<UlatBuluButton> menuButtons;
+	
 	List<UlatPicker> UlatList;
 	private ULAT choosenUlat;
-
 	
 	public MenuManager() {
 		menuButtons = new ArrayList<>();
@@ -82,6 +80,9 @@ public class MenuManager {
 	}
 	
 
+	
+	
+	
 	private void createSubScenes() {
 		
 		creditsSubscene = new UlatBuluSubScene();
@@ -116,7 +117,6 @@ public class MenuManager {
 		InfoLabel scoresLabel = new InfoLabel("SCORES");
 		scoresLabel.setLayoutX(200);
 		scoresLabel.setLayoutY(25);
-		scoreSubscene.getPane().getChildren().add(scoresLabel);
 		
 		String[] HS = new String[3];
 		for(int i = 0; i < 3; i++) {
@@ -131,10 +131,12 @@ public class MenuManager {
 			highScore.setLayoutX(60);
 			scoreSubscene.getPane().getChildren().add(highScore);
 		}
+		
+		scoreSubscene.getPane().getChildren().add(scoresLabel);
 	}
 	
 	private void createHelpSubScene() {
-		InfoLabel helpLabel = new InfoLabel("TUTORIAL");
+		InfoLabel helpLabel = new InfoLabel("HELP");
 		helpLabel.setLayoutX(200);
 		helpLabel.setLayoutY(25);
 		Text helptext = new Text();
@@ -200,19 +202,23 @@ public class MenuManager {
 		return box;
 	}
 	
+	
 
 	private UlatBuluButton createButtonToStart() {
 		UlatBuluButton startButton = new UlatBuluButton("START");
 		startButton.setLayoutX(350);
 		startButton.setLayoutY(300);
 		
+		
 		startButton.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				GameManager gameManager = new GameManager();
-				gameManager.start(choosenUlat);
-				mainStage.close();
+				if (choosenUlat != null) {
+					GameManager gameManager = new GameManager();
+					gameManager.start(choosenUlat);
+					mainStage.close();
+				}
 			}
 			
 		});
@@ -220,6 +226,7 @@ public class MenuManager {
 		return startButton;
 	}
 		
+
 
 	public Stage getMainStage() {
 		return mainStage;
@@ -352,3 +359,4 @@ public class MenuManager {
 	
 
 }
+

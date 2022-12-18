@@ -74,7 +74,6 @@ public class GameOverManager {
 					primaryStage.close();
 					restart.start(ulatChoosen);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
